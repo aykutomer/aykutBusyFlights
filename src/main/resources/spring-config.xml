@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="dateFormat" class="java.text.SimpleDateFormat">
+        <constructor-arg value="YYYY-MM-DD"/>
+    </bean>
+
+    <bean id="date" factory-bean="dateFormat" factory-method="parse">
+        <constructor-arg value="2017-01-01"/>
+    </bean>
+
+    <bean id="date2" factory-bean="dateFormat" factory-method="parse">
+        <constructor-arg value="2017-01-02"/>
+    </bean>
+
+    <bean id="toughJetFlightsRequest" class="com.busyflights.service.ToughJetFlightsRequest"/>
+
+    <bean id="toughJet1" class="com.busyflights.service.ToughJetFlightsResponse">
+
+        <property name="carrier" value="THY"/>
+        <property name="basePrice" value="125.25"/>
+        <property name="tax" value="25"/>
+        <property name="discount" value="5"/>
+        <property name="departureAirportName" value="SAW"/>
+        <property name="arrivalAirportName" value="ESB"/>
+        <property name="departureDay" value="01"/>
+        <property name="departureMonth" value="01"/>
+        <property name="departureYear" value="2017"/>
+        <property name="returnDay" value="01"/>
+        <property name="returnMonth" value="01"/>
+        <property name="returnYear" value="2017"/>
+    </bean>
+
+    <bean id="toughJet2" class="com.busyflights.service.ToughJetFlightsResponse">
+
+        <property name="carrier" value="THY"/>
+        <property name="basePrice" value="400.50"/>
+        <property name="tax" value="50"/>
+        <property name="discount" value="0"/>
+        <property name="departureAirportName" value="SAW"/>
+        <property name="arrivalAirportName" value="ESB"/>
+        <property name="departureDay" value="01"/>
+        <property name="departureMonth" value="01"/>
+        <property name="departureYear" value="2017"/>
+        <property name="returnDay" value="01"/>
+        <property name="returnMonth" value="01"/>
+        <property name="returnYear" value="2017"/>
+    </bean>
+
+
+    <bean id="toughJet3" class="com.busyflights.service.ToughJetFlightsResponse">
+
+        <property name="carrier" value="THY"/>
+        <property name="basePrice" value="300"/>
+        <property name="tax" value="75"/>
+        <property name="discount" value="0"/>
+        <property name="departureAirportName" value="ESB"/>
+        <property name="arrivalAirportName" value="SAW"/>
+        <property name="departureDay" value="01"/>
+        <property name="departureMonth" value="01"/>
+        <property name="departureYear" value="2017"/>
+        <property name="returnDay" value="01"/>
+        <property name="returnMonth" value="01"/>
+        <property name="returnYear" value="2017"/>
+    </bean>
+
+
+    <bean id="crazyAirFlights" class="com.busyflights.service.CrazyAirFlightsResponse">
+
+        <property name="airline" value="THY"/>
+        <property name="totalPrice" value="1000"/>
+        <property name="cabinClass" value="E"/>
+        <property name="departureAirCode" value="SAW"/>
+        <property name="destinationAirCode" value="ESB"/>
+        <property name="departureDate" ref="date"/>
+        <property name="arrivalDate" ref="date"/>
+
+    </bean>
+
+    <bean id="crazyAirFlights2" class="com.busyflights.service.CrazyAirFlightsResponse">
+
+        <property name="airline" value="THY"/>
+        <property name="totalPrice" value="1200"/>
+        <property name="cabinClass" value="E"/>
+        <property name="departureAirCode" value="SAW"/>
+        <property name="destinationAirCode" value="ESB"/>
+        <property name="departureDate" ref="date"/>
+        <property name="arrivalDate" ref="date2"/>
+    </bean>
+
+
+
+</beans>
